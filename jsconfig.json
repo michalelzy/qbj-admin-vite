@@ -1,0 +1,20 @@
+// 配置文件，用于在Visual Studio Code（VS Code）中为JavaScript和TypeScript项目提供更好的编辑体验。
+// 这个文件可以帮助VS Code理解项目的结构，从而提供更智能的代码补全、跳转到定义、查找所有引用等功能。
+
+{
+    "compilerOptions": {
+        "target": "ES6", //设置为 ES6，表示编译的目标JavaScript版本是ES6。
+        "jsx":"preserve",
+        "module": "commonjs", //设置为 CommonJS，表示使用的模块系统是CommonJS。
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "./", //设置为 .，表示基础路径是项目根目录
+        "paths": {
+            "/@/*": [
+                "src/*" //将整个源码目录收录
+            ]
+        }
+    },
+    "exclude": [
+        "node_modules" //指定在编译过程中应该排除的文件或目录。这可以帮助VS Code忽略不需要索引的文件，从而提高性能。
+    ]
+}
