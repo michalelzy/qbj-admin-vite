@@ -48,21 +48,33 @@ import HelloWorld from './components/HelloWorld.vue'
  import { theme } from 'ant-design-vue';
  import { computed } from 'vue';
  import { themeColors } from '/@/theme/color.js';
+ import { useAppConfigStore} from '/@/store/modules/system/app-config';
+ import {useSpinSotre} from '/@/store/modules/system/spin';
+ import {messages} from '/@/i18n';
 
  //主题本地化
- const antdLocale = computed();
+ const antdLocale = computed(() => messages[useAppConfigStore().language].antdLocale);
  //时间本地化
- const dayjsLocale = computed();
+ const dayjsLocale = computed(() => messages[useAppConfigStore().language].dayjsLocale);
  //配置dayjs.locale('zh-cn');
  dayjs.locale(dayjsLocale);
 
- const compactFlag = computed();
+ let spinStore = useSpinSotre();
+ const spinning = computed(() => spinStore.loading);
+
+ const compactFlag = computed(() => useAppConfigStore().compactFlag);
 
  //主题颜色
- const colorIndex = computed();
+ const colorIndex = computed(() => {
+    return useAppConfigStore().colorIndex;
+  });
 
  //圆角
- const borderRadius = computed();
+ const borderRadius = computed(
+   () => {
+     return useAppConfigStore().borderRadius;
+   }
+ );
 
 </script>
 

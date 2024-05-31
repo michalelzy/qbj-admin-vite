@@ -7,7 +7,9 @@
  * localStorage为浏览器环境变量；本方法将键值对存储到本地localStorage
  * 
  */
-export const localSave = (key, value) => {};
+export const localSave = (key, value) => {
+    localStorage.setItem(key, value);
+};
 
 /**
  * 
@@ -15,7 +17,9 @@ export const localSave = (key, value) => {};
  * 
  * 读取localStorage 
  */
-export const localRead = (key) => {};
+export const localRead = (key) => {
+    return localStorage.getItem(key) || '';
+};
 
 /**
  * 清除localStorage
